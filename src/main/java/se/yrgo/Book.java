@@ -1,16 +1,20 @@
 package se.yrgo;
 
-public class Book {
+import java.time.LocalDate;
+
+public class Book implements Comparable<Book> {
     private String title;
     private String author;
     private String isbn;
     private int copyNo;
+    private LoanStatus loanStatus;
 
     public Book(String title, String author, String isbn, int copyNo) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.copyNo = copyNo;
+        this.loanStatus = LoanStatus.AVAILABLE;
     }
 
     public String getTitle() {
@@ -29,6 +33,14 @@ public class Book {
         return copyNo;
     }
 
+    public LoanStatus getLoanStatus() {
+        return loanStatus;
+    }
+
+    public void setLoanStatus(LoanStatus loanStatus) {
+        this.loanStatus = loanStatus;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -37,5 +49,10 @@ public class Book {
                 ", isbn='" + isbn + '\'' +
                 ", copyNo=" + copyNo +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return this.title.compareTo(o.title);
     }
 }

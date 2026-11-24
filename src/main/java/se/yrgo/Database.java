@@ -3,12 +3,14 @@ package se.yrgo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class Database {
 
@@ -32,9 +34,16 @@ public class Database {
         }
     }
 
+    public User getUser(String customerID) {
+        return users.get(customerID);
+    }
+
     public void giveCustomerId(User user) {
-        String customerID = "CUST" + (users.size() + 1);
-        user.setCustomerID(customerID);
+        int n = users.size() + 1;
+        while (users.containsKey("CUST" + n)) {
+            n++;
+        }
+        user.setCustomerID("CUST" + n);
     }
 
     public void saveDatabaseAsJson() {
@@ -44,10 +53,12 @@ public class Database {
     public void loadDatabaseFromJson(String fileName) {
         Gson gson = new Gson();
         try (BufferedReader reader = Files.newBufferedReader(Path.of(fileName))) {
-            User[] loadedUsers = gson.fromJson(reader, User[].class);
+            Type type = new TypeToken<HashMap<String, User>>() {
+            }.getType();
+            HashMap<String, User> loaded = gson.fromJson(reader, type);
             users.clear();
-            for (User user : loadedUsers) {
-                users.put(user.getCustomerID(), user);
+            if (loaded != null) {
+                users.putAll(loaded);
             }
             System.out.println("Database loaded from " + fileName);
         } catch (IOException e) {
