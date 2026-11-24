@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Library {
     private String libraryName;
-    private Map<Book,LoanStatus> bookList; //Book, Loan Status
-   // private List<User> libraryUser;
+    private Map<Book, LoanStatus> bookList; // Book, Loan Status
+    // private List<User> libraryUser;
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
