@@ -1,0 +1,11 @@
+{
+  "CUST1": {
+    "fullName": "Patrik Andersson",
+    "address": "Lindholmen 2",
+    "email": "patrik@patrik.se",
+    "customerID": "CUST1",
+    "password": "07305555",
+    "phoneNumber": "",
+    "borrowedBooks": []
+  }
+}

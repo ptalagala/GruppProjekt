@@ -15,7 +15,7 @@ public class Main {
 
         // ---- Menu (loggedInUser is set from here on) ----
         System.out.println(
-                "What do you want to do? (1: Remove Your Account, 2: Borrow Book, 3: Return Book, 4: Show My Books)");
+                "What do you want to do? (1: Remove Your Account, 2: Borrow Book, 3: Return Book, 4: Show My Books, 5: Show user info, 6: QUIT)");
         if (scanner.hasNextInt()) {
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -49,21 +49,21 @@ public class Main {
                     }
 
                 case 3: // Return a book
-                    List<Book> borrowedBooks = loggedInUser.getBorrowedBooks();
-                    if (borrowedBooks.isEmpty()) {
+                    List<Book> usersBorrowedBooks = loggedInUser.getBorrowedBooks();
+                    if (usersBorrowedBooks.isEmpty()) {
                         System.out.println("You have no borrowed books to return.");
                     } else {
                         System.out.println("Your borrowed books:");
-                        for (Book book : borrowedBooks) {
+                        for (Book book : usersBorrowedBooks) {
                             System.out.println(book);
                         }
                         System.out.println("Enter the title of the book you want to return:");
                         String returnTitle = scanner.nextLine();
                         Book bookToReturn = null;
-                        if (borrowedBooks.isEmpty()) {
+                        if (usersBorrowedBooks.isEmpty()) {
                             System.out.println("You have no borrowed books to return.");
                         } else {
-                            for (Book book : borrowedBooks) {
+                            for (Book book : usersBorrowedBooks) {
                                 if (book.getTitle().equalsIgnoreCase(returnTitle)) {
                                     bookToReturn = book;
                                     loggedInUser.removeBorrowedBook(bookToReturn);
@@ -89,6 +89,13 @@ public class Main {
                         }
                     }
                     break;
+                case 5: // Show Userinfo
+                    showUserInfo(loggedInUser);
+                    break;
+
+                case 6: // Quit
+                    System.out.println("Exiting the program. Goodbye!");
+                    System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
