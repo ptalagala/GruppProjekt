@@ -1,10 +1,13 @@
 package se.yrgo;
 
+import java.time.LocalDate;
+
 public class Book implements Comparable<Book> {
     private String title;
     private String author;
     private String isbn;
     private int copyNo;
+    private LoanStatus loanStatus;
 
     public Book(String title, String author, String isbn, int copyNo) {
         this.title = title;

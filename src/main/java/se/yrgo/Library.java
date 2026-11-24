@@ -4,19 +4,19 @@ import java.util.*;
 
 public class Library {
     private String libraryName;
-    private Map<Book,LoanStatus> bookList; //Book, Loan Status
+    private List<Book> bookList; //Book, Loan Status
    // private List<User> libraryUser;
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
-        this.bookList = new TreeMap<>();
+        this.bookList = new ArrayList<>();
     }
 
     public String getLibraryName() {
         return libraryName;
     }
 
-    public Map<Book, LoanStatus> getBookList() {
+    public List<Book> getBookList() {
         return bookList;
     }
 
@@ -29,7 +29,7 @@ public class Library {
     }
 
     public void addNewBook(Book book){
-        bookList.put(book,LoanStatus.AVAILABLE);
+        bookList.add(book);
     }
 
     public void removeBook(Book book){
