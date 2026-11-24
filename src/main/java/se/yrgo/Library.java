@@ -27,4 +27,12 @@ public class Library {
                 ", bookList=" + bookList +
                 '}';
     }
+
+    public void addNewBook(Book book){
+        bookList.put(book,LoanStatus.AVAILABLE);
+    }
+
+    public void removeBook(Book book){
+        bookList.remove(book);
+    }
 }

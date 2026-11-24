@@ -1,6 +1,6 @@
 package se.yrgo;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private String title;
     private String author;
     private String isbn;
@@ -37,5 +37,10 @@ public class Book {
                 ", isbn='" + isbn + '\'' +
                 ", copyNo=" + copyNo +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return this.title.compareTo(o.title);
     }
 }

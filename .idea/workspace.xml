@@ -4,36 +4,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cdad647-d272-4c53-957a-b3c6473c6366" name="Changes" comment="" />
+    <list default="true" id="3cdad647-d272-4c53-957a-b3c6473c6366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../Inlämningsuppgift2/MavenProject/LibraryProject" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7,
-  "fromUser": false
-}]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000011886743347" />
+      <entry key="S2" value="1.0648986837329975" />
+      <entry key="S5" value="1.8383644026983679" />
+      <entry key="S10" value="3.1784223284741637" />
+      <entry key="S30" value="5.706095977465478" />
+      <entry key="S60" value="8.763623197019637" />
+      <entry key="M2" value="14.857620189456764" />
+      <entry key="M5" value="29.19351253266851" />
+      <entry key="M10" value="62.06820527361851" />
+      <entry key="M15" value="99.76932635180825" />
+      <entry key="M30" value="191.03774784941484" />
+      <entry key="H1" value="284.68640956343586" />
+      <entry key="H2" value="354.1472413841963" />
+      <entry key="H4" value="396.8281949216525" />
+      <entry key="D1" value="437.3098426493975" />
+      <entry key="W1" value="444.7458073711003" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.8170127904395292E-6" />
+      <entry key="MS500" value="0.07258874942791022" />
+      <entry key="S2" value="0.7127963289468058" />
+      <entry key="S5" value="1.2892148206216973" />
+      <entry key="S10" value="1.5991402844459193" />
+      <entry key="S30" value="2.025864718172202" />
+      <entry key="S60" value="2.818006503244041" />
+      <entry key="M2" value="4.285737069490125" />
+      <entry key="M5" value="7.593904986603754" />
+      <entry key="M10" value="11.534514290910305" />
+      <entry key="M15" value="14.162524654707832" />
+      <entry key="M30" value="18.39143595738975" />
+      <entry key="H1" value="21.58113821042048" />
+      <entry key="H2" value="23.600190274093475" />
+      <entry key="H4" value="24.746687419157016" />
+      <entry key="D1" value="25.783130946882874" />
+      <entry key="W1" value="25.968815255653933" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.003544996703495692" />
+      <entry key="MS500" value="0.32857855250017415" />
+      <entry key="S2" value="1.1646496451573072" />
+      <entry key="S5" value="2.640260933827135" />
+      <entry key="S10" value="4.424692027021806" />
+      <entry key="S30" value="7.553622857382544" />
+      <entry key="S60" value="11.447126735022634" />
+      <entry key="M2" value="19.031915744689766" />
+      <entry key="M5" value="36.70926752810638" />
+      <entry key="M10" value="73.54618714439003" />
+      <entry key="M15" value="113.88576463926078" />
+      <entry key="M30" value="209.39845939707973" />
+      <entry key="H1" value="306.2489187318665" />
+      <entry key="H2" value="377.7370119734585" />
+      <entry key="H4" value="421.5693479663779" />
+      <entry key="D1" value="463.0920012897655" />
+      <entry key="W1" value="470.71448243469575" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3MN7MBloFaA4Rg7PKGolrxNKdda" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/Users/poori/Documents/Yrgo/Utvecklingsverktyg/Assignments/Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;book&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/poori/Documents/Yrgo/Utvecklingsverktyg/Assignments/Inlämningsuppgift2/MavenProject/LibraryProject/src/main/java/se/yrgo/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
