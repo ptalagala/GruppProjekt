@@ -4,13 +4,23 @@ import java.util.*;
 
 public class Library {
     private String libraryName;
+<<<<<<< HEAD
 
     private List<Book> bookList; // Book, Loan Status
     // private List<User> libraryUser;
+=======
+    private List<Book> bookList;
+>>>>>>> origin/book
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
         this.bookList = new ArrayList<>();
+        bookList.add(new Book("Introdcution to Java","R. J. Martin","3556569897897",1));
+        bookList.add(new Book("Introdcution to Java","R. J. Martin","3556569897897",2));
+        bookList.add(new Book("Introdcution to C#","M. K. Lans","3556569897897",1));
+        bookList.add(new Book("Introdcution to C#","M. K. Lans","3556569897897",2));
+        bookList.add(new Book("Advanced Coding with Java","P. B. Johnson","3556569897897",1));
+        bookList.add(new Book("Linux Bible","C. Negus","3556569897897",1));
     }
 
     public String getLibraryName() {
@@ -29,11 +39,22 @@ public class Library {
                 '}';
     }
 
-    public void addNewBook(Book book) {
-        bookList.add(book);
+
+
+    public void addNewBook(Book book){
+        for(Book existingBook : bookList )
+            if (existingBook.equals(book)) {
+                System.out.println("Book already exists!");
+
+            } else {
+                bookList.add(book);
+                System.out.println("Book added!");
+            }
+
     }
 
     public void removeBook(Book book) {
         bookList.remove(book);
+        System.out.println("Book removed!");
     }
 }
