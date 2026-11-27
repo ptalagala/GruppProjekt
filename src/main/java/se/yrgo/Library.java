@@ -4,13 +4,9 @@ import java.util.*;
 
 public class Library {
     private String libraryName;
-<<<<<<< HEAD
-
-    private List<Book> bookList; // Book, Loan Status
-    // private List<User> libraryUser;
-=======
     private List<Book> bookList;
->>>>>>> origin/book
+    // private List<User> libraryUser;
+
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
