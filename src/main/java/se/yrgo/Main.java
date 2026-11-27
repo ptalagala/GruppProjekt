@@ -26,10 +26,8 @@ public class Main {
                 case 2: // Borrow a book
                     library.getBookList().sort(Comparator.naturalOrder());
                     System.out.println("Available books:");
-                    for (Book book : library.getBookList()) {
-                        if (book.getLoanStatus() == LoanStatus.AVAILABLE) {
-                            System.out.println(book);
-                        }
+                    for (Book book : library.getBookByStatus(LoanStatus.AVAILABLE)) {
+                           System.out.println(book);
                     }
                     System.out.println("Enter the title of the book you want to borrow:");
                     String title = scanner.nextLine();

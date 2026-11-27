@@ -11,11 +11,11 @@ public class Library {
     public Library(String libraryName) {
         this.libraryName = libraryName;
         this.bookList = new ArrayList<>();
-        bookList.add(new Book("Introdcution to Java","R. J. Martin","3556569897897",1));
-        bookList.add(new Book("Introdcution to Java","R. J. Martin","3556569897897",2));
-        bookList.add(new Book("Introdcution to C#","M. K. Lans","3556569897897",1));
-        bookList.add(new Book("Introdcution to C#","M. K. Lans","3556569897897",2));
-        bookList.add(new Book("Advanced Coding with Java","P. B. Johnson","3556569897897",1));
+        bookList.add(new Book("Introduction to Java Programming","Y. Liang","9781292469966",1));
+        bookList.add(new Book("Introduction to Java Programming","Y. Liang","9781292469966",2));
+        bookList.add(new Book("The C++ Programming Language","B. Stroustrup","9780321563842",1));
+        bookList.add(new Book("The C++ Programming Language","B. Stroustrup","9780321563842",2));
+        bookList.add(new Book("Spring Boot: Up and Running","M. Heckler","9781492076988",1));
         bookList.add(new Book("Linux Bible","C. Negus","3556569897897",1));
     }
 
@@ -27,6 +27,10 @@ public class Library {
         return bookList;
     }
 
+    public List<Book> getBookByStatus(LoanStatus loanStatus) {
+        return bookList.stream().filter(book -> book.getLoanStatus() == loanStatus).toList();
+    }
+
     @Override
     public String toString() {
         return "Library{" +
@@ -34,8 +38,6 @@ public class Library {
                 ", bookList=" + bookList +
                 '}';
     }
-
-
 
     public void addNewBook(Book book){
         for(Book existingBook : bookList )

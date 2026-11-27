@@ -1,6 +1,6 @@
 package se.yrgo;
 
-import java.time.LocalDate;
+import java.util.Objects;
 
 public class Book implements Comparable<Book> {
     private String title;
@@ -42,6 +42,18 @@ public class Book implements Comparable<Book> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return copyNo == book.copyNo && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, isbn, copyNo);
+    }
+
+    @Override
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
@@ -56,3 +68,4 @@ public class Book implements Comparable<Book> {
         return this.title.compareTo(o.title);
     }
 }
+
