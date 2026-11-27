@@ -7,5 +7,14 @@
     "password": "07305555",
     "phoneNumber": "",
     "borrowedBooks": []
+  },
+  "CUST2": {
+    "fullName": "Poornima",
+    "address": "Sonnetgatan 1",
+    "email": "poornima@email.com",
+    "customerID": "CUST2",
+    "password": "1234",
+    "phoneNumber": "0712345678",
+    "borrowedBooks": []
   }
 }

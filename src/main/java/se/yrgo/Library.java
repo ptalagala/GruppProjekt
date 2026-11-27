@@ -11,12 +11,6 @@ public class Library {
     public Library(String libraryName) {
         this.libraryName = libraryName;
         this.bookList = new ArrayList<>();
-        bookList.add(new Book("Introduction to Java Programming","Y. Liang","9781292469966",1));
-        bookList.add(new Book("Introduction to Java Programming","Y. Liang","9781292469966",2));
-        bookList.add(new Book("The C++ Programming Language","B. Stroustrup","9780321563842",1));
-        bookList.add(new Book("The C++ Programming Language","B. Stroustrup","9780321563842",2));
-        bookList.add(new Book("Spring Boot: Up and Running","M. Heckler","9781492076988",1));
-        bookList.add(new Book("Linux Bible","C. Negus","3556569897897",1));
     }
 
     public String getLibraryName() {
@@ -39,16 +33,15 @@ public class Library {
                 '}';
     }
 
-    public void addNewBook(Book book){
-        for(Book existingBook : bookList )
-            if (existingBook.equals(book)) {
-                System.out.println("Book already exists!");
-
-            } else {
-                bookList.add(book);
-                System.out.println("Book added!");
-            }
-
+    public void addNewBook(Book book) {
+        if (!bookList.isEmpty()) {
+            for (Book existingBook : bookList)
+                if (existingBook.equals(book)) {
+                    throw new IllegalArgumentException("Book already exists!");
+                }
+        }
+        bookList.add(book);
+        System.out.println("Book added!");
     }
 
     public void removeBook(Book book) {

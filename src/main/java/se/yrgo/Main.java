@@ -7,6 +7,14 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Library library = new Library("My Library");
+
+        library.addNewBook(new Book("Introduction to Java Programming", "Y. Liang", "9781292469966", 1));
+        library.addNewBook(new Book("Introduction to Java Programming", "Y. Liang", "9781292469966", 2));
+        library.addNewBook(new Book("The C++ Programming Language", "B. Stroustrup", "9780321563842", 1));
+        library.addNewBook(new Book("The C++ Programming Language", "B. Stroustrup", "9780321563842", 2));
+        library.addNewBook(new Book("Spring Boot: Up and Running", "M. Heckler", "9781492076988", 1));
+        library.addNewBook(new Book("Linux Bible", "C. Negus", "3556569897897", 1));
+
         Database database = new Database();
         database.loadDatabaseFromJson("database.json");
         System.out.println("Welcome to the library system!");
@@ -14,91 +22,100 @@ public class Main {
         final User loggedInUser = logIn(scanner, database);
 
         // ---- Menu (loggedInUser is set from here on) ----
-        System.out.println(
-                "What do you want to do? (1: Remove Your Account, 2: Borrow Book, 3: Return Book, 4: Show My Books, 5: Show user info, 6: QUIT)");
-        if (scanner.hasNextInt()) {
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+        while (true) { // Provide the user the main menu until the user quits.
+            System.out.println(
+                    "What do you want to do? \n" +
+                            "1: Remove Your Account \n" +
+                            "2: Borrow Book \n" +
+                            "3: Return Book \n" +
+                            "4: Show My Books \n" +
+                            "5: Show user info \n" +
+                            "6: QUIT");
 
-            switch (choice) {
-                case 1: // Remove account
-                    break;
-                case 2: // Borrow a book
-                    library.getBookList().sort(Comparator.naturalOrder());
-                    System.out.println("Available books:");
-                    for (Book book : library.getBookByStatus(LoanStatus.AVAILABLE)) {
-                           System.out.println(book);
-                    }
-                    System.out.println("Enter the title of the book you want to borrow:");
-                    String title = scanner.nextLine();
-                    Book bookToBorrow = null;
+            if (scanner.hasNextInt()) {
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-                    for (Book book : library.getBookList()) {
-                        if (book.getTitle().equalsIgnoreCase(title) && book.getLoanStatus() == LoanStatus.AVAILABLE) {
-                            bookToBorrow = book;
-                            loggedInUser.addBorrowedBook(bookToBorrow);
-                            bookToBorrow.setLoanStatus(LoanStatus.BORROWED);
-                            System.out.println("You have borrowed: " + bookToBorrow);
-                            break;
-                        } else {
-                            System.out.println("Book not found or not available.");
-                            break;
-                        }
-                    }
-
-                case 3: // Return a book
-                    List<Book> usersBorrowedBooks = loggedInUser.getBorrowedBooks();
-                    if (usersBorrowedBooks.isEmpty()) {
-                        System.out.println("You have no borrowed books to return.");
-                    } else {
-                        System.out.println("Your borrowed books:");
-                        for (Book book : usersBorrowedBooks) {
+                switch (choice) {
+                    case 1: // Remove account
+                        break;
+                    case 2: // Borrow a book
+                        library.getBookList().sort(Comparator.naturalOrder());
+                        System.out.println("Available books:");
+                        for (Book book : library.getBookByStatus(LoanStatus.AVAILABLE)) {
                             System.out.println(book);
                         }
-                        System.out.println("Enter the title of the book you want to return:");
-                        String returnTitle = scanner.nextLine();
-                        Book bookToReturn = null;
+                        System.out.println("Enter the title of the book you want to borrow:");
+                        String title = scanner.nextLine();
+                        Book bookToBorrow = null;
+
+                        for (Book book : library.getBookByStatus(LoanStatus.AVAILABLE)) {
+                            if (book.getTitle().equalsIgnoreCase(title)) {
+                                bookToBorrow = book;
+                                loggedInUser.addBorrowedBook(bookToBorrow);
+                                bookToBorrow.setLoanStatus(LoanStatus.BORROWED);
+                                System.out.println("You have borrowed: " + bookToBorrow);
+                                break;
+                            }
+                        }
+                        if (bookToBorrow == null) {
+                            System.out.println("Book not found or not available.");
+                        }
+                        break;
+                    case 3: // Return a book
+                        List<Book> usersBorrowedBooks = loggedInUser.getBorrowedBooks();
                         if (usersBorrowedBooks.isEmpty()) {
                             System.out.println("You have no borrowed books to return.");
                         } else {
+                            System.out.println("Your borrowed books:");
                             for (Book book : usersBorrowedBooks) {
-                                if (book.getTitle().equalsIgnoreCase(returnTitle)) {
-                                    bookToReturn = book;
-                                    loggedInUser.removeBorrowedBook(bookToReturn);
-                                    bookToReturn.setLoanStatus(LoanStatus.AVAILABLE);
-                                    System.out.println("You have returned: " + bookToReturn);
-                                    break;
+                                System.out.println(book);
+                            }
+                            System.out.println("Enter the title of the book you want to return:");
+                            String returnTitle = scanner.nextLine();
+                            Book bookToReturn = null;
+                            if (usersBorrowedBooks.isEmpty()) {
+                                System.out.println("You have no borrowed books to return.");
+                            } else {
+                                for (Book book : usersBorrowedBooks) {
+                                    if (book.getTitle().equalsIgnoreCase(returnTitle)) {
+                                        bookToReturn = book;
+                                        loggedInUser.removeBorrowedBook(bookToReturn);
+                                        bookToReturn.setLoanStatus(LoanStatus.AVAILABLE);
+                                        System.out.println("You have returned: " + bookToReturn);
+                                        break;
+                                    }
+                                }
+                                if (bookToReturn == null) {
+                                    System.out.println("Book not found in your borrowed list.");
                                 }
                             }
-                            if (bookToReturn == null) {
-                                System.out.println("Book not found in your borrowed list.");
+                        }
+                        break;
+                    case 4: // Show my borrowed books
+                        List<Book> borrowedBooks = loggedInUser.getBorrowedBooks();
+                        if (borrowedBooks.isEmpty()) {
+                            System.out.println("You have no borrowed books.");
+                        } else {
+                            System.out.println("Your borrowed books:");
+                            for (Book book : borrowedBooks) {
+                                System.out.println(book);
                             }
                         }
-                    }
-                    break;
-                case 4: // Show my borrowed books
-                    List<Book> borrowedBooks = loggedInUser.getBorrowedBooks();
-                    if (borrowedBooks.isEmpty()) {
-                        System.out.println("You have no borrowed books.");
-                    } else {
-                        System.out.println("Your borrowed books:");
-                        for (Book book : borrowedBooks) {
-                            System.out.println(book);
-                        }
-                    }
-                    break;
-                case 5: // Show Userinfo
-                    showUserInfo(loggedInUser);
-                    break;
+                        break;
+                    case 5: // Show Userinfo
+                        showUserInfo(loggedInUser);
+                        break;
 
-                case 6: // Quit
-                    System.out.println("Exiting the program. Goodbye!");
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                    case 6: // Quit
+                        System.out.println("Exiting the program. Goodbye!");
+                        System.exit(0);
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
             }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
         }
     }
 
